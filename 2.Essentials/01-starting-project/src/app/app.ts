@@ -13,8 +13,14 @@ import { DUMMY_USERS } from './user/dummy-users';
 export class App {
   protected readonly title = signal('01-starting-project');
   users = DUMMY_USERS;
+  selectedUserId = this.users[0]['id'];
 
   onUserSelected(id: string) {
-    console.log('Selected user ID:', id);
+    this.selectedUserId = id;
+  }
+
+  getSelectedUserName(): string | undefined {
+    const user = this.users.find((user) => user.id === this.selectedUserId);
+    return user ? user.name : undefined;
   }
 }

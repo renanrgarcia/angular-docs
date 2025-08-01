@@ -10,13 +10,13 @@ export class User {
   @Input({ required: true }) id!: string;
   @Input({ required: true }) avatar!: string;
   @Input({ required: true }) name!: string;
-  @Output() select = new EventEmitter<string>();
+  @Output() selectId = new EventEmitter<string>();
 
   get userImage() {
     return 'assets/users/' + this.avatar;
   }
 
   onSelectUser() {
-    this.select.emit(this.id);
+    this.selectId.emit(this.id);
   }
 }
