@@ -1,12 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { HeaderComponent } from './header/header';
 import { Tasks } from './tasks/tasks';
-import { User, UserType } from './user/user';
+import { type User } from './user/user.model';
+import { UserComponent } from './user/user';
 import { DUMMY_USERS } from './user/dummy-users';
 
 @Component({
   selector: 'app-root',
-  imports: [HeaderComponent, User, Tasks],
+  imports: [HeaderComponent, UserComponent, Tasks],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -19,7 +20,7 @@ export class App {
     this.selectedUserId = id;
   }
 
-  get selectedUser(): UserType | undefined {
+  get selectedUser(): User | undefined {
     return this.users.find((user) => user.id === this.selectedUserId);
   }
 }

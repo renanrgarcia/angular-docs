@@ -1,11 +1,23 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { DUMMY_TASKS } from './task/dummy-tasks';
+import { TaskComponent } from './task/task';
+import { type User } from '../user/user.model';
 
 @Component({
   selector: 'app-tasks',
-  imports: [],
+  imports: [TaskComponent],
   templateUrl: './tasks.html',
   styleUrl: './tasks.css',
 })
 export class Tasks {
-  @Input() name?: string | undefined;
+  tasks = DUMMY_TASKS;
+
+  @Input({ required: true }) user: User | undefined;
+
+  get userTasks() {
+    if (this.user) {
+      return this.tasks.filter((task) => task.userId === this.user!.id);
+    }
+    return [];
+  }
 }
