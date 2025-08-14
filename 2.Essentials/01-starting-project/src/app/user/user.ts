@@ -9,6 +9,7 @@ import { type User } from './user.model';
 })
 export class UserComponent {
   @Input({ required: true }) user!: User;
+  @Input({ required: true }) selected = false;
   @Output() selectId = new EventEmitter<string>();
 
   get userImage() {
