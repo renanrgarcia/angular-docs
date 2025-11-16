@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { HeaderComponent } from './header/header';
-import { Tasks } from './tasks/tasks';
+import { Tasks } from './tasks/tasks.component';
 import { type User } from './user/user.model';
 import { UserComponent } from './user/user';
 import { DUMMY_USERS } from './user/dummy-users';
