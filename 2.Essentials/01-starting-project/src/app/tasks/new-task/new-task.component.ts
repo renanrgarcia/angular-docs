@@ -6,14 +6,14 @@ import {
   Output,
   signal,
 } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
 import { TasksService } from '../tasks.service';
 
 @Component({
   selector: 'app-new-task',
-  imports: [FormsModule],
+  // imports: [FormsModule],
   templateUrl: './new-task.html',
   styleUrl: './new-task.css',
+  standalone: false,
 })
 export class NewTaskComponent {
   @Input({ required: true }) userId!: string;
