@@ -1,18 +1,41 @@
-<form>
-  <div>
-    <label for="current-savings">Current Savings ($)</label>
-    <input type="number" id="current-savings" />
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+  <div class="input-group">
+    <p>
+      <label for="initial-investment">INITIAL INVESTMENT</label>
+      <input
+        type="number"
+        id="initial-investment"
+        [(ngModel)]="initialInvestment"
+        name="initialInvestment"
+      />
+    </p>
+    <p>
+      <label for="annual-investment">ANNUAL INVESTMENT</label>
+      <input
+        type="number"
+        id="annual-investment"
+        [(ngModel)]="annualInvestment"
+        name="annualInvestment"
+      />
+    </p>
   </div>
-  <div>
-    <label for="yearly-contribution">Yearly Savings ($)</label>
-    <input type="number" id="yearly-contribution" />
+  <div class="input-group">
+    <p>
+      <label for="expected-return">EXPECTED RETURN</label>
+      <input
+        type="number"
+        id="expected-return"
+        [(ngModel)]="expectedReturn"
+        name="expectedReturn"
+      />
+    </p>
+    <p>
+      <label for="duration">DURATION</label>
+      <input type="number" id="duration" [(ngModel)]="duration" name="duration" />
+    </p>
   </div>
-  <div>
-    <label for="expected-return">Expected Interest (%, per year)</label>
-    <input type="number" id="expected-return" />
-  </div>
-  <div>
-    <label for="duration">Investment Duration (years)</label>
-    <input type="number" id="duration" />
-  </div>
+
+  <p>
+    <button type="submit">CALCULATE</button>
+  </p>
 </form>
